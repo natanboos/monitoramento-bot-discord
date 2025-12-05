@@ -36,5 +36,5 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "{\"content\": \"🚨 **BOT OFFLINE!**\nNenhum status recebido há mais de 20 minutos.\n**Verificar servidor assim que possível!** <@329429623945297921><@920632184396738601>\"}" \
+               -d "{\"content\": \"🚨 **BOT OFFLINE!**\nNenhum status recebido há mais de 20 minutos.\n**Verificar servidor assim que possível!** <@329429623945297921> <@920632184396738601>\"}" \
                https://discord.com/api/webhooks/1446507675247575113/ZCdaGeMOvyx9VNopRfYh93EK0ubOJRNgK0iAofxCCP17MC_QFV8apT82IcTGm-ML8QOS

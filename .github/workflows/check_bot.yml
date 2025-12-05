@@ -2,7 +2,7 @@ name: Monitor Bot
 
 on:
   schedule:
-    - cron: "*/30 * * * *" # a cada 30 min
+    - cron: "*/15 * * * *" # a cada 30 min
 
 jobs:
   check:
@@ -25,9 +25,9 @@ jobs:
           echo "diff=$DIFF" >> $GITHUB_OUTPUT
 
       - name: Notificar se estiver offline
-        if: ${{ steps.readhb.outputs.diff > 2400 }}  # > 40 min
+        if: ${{ steps.readhb.outputs.diff > 1200 }}  # > 20 min
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "{\"content\": \"🚨 **BOT OFFLINE!** Nenhum heartbeat há mais de 40 minutos. <@329429623945297921>\"}" \
+               -d "{\"content\": \"🚨 **BOT OFFLINE!**\nNenhum heartbeat há mais de 40 minutos.\n<@329429623945297921><@920632184396738601>\"}" \
                https://discord.com/api/webhooks/1446507675247575113/ZCdaGeMOvyx9VNopRfYh93EK0ubOJRNgK0iAofxCCP17MC_QFV8apT82IcTGm-ML8QOS

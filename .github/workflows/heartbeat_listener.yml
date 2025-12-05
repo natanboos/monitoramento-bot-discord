@@ -7,7 +7,8 @@ on:
 jobs:
   save:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write  # permite push via GITHUB_TOKEN
     steps:
       - uses: actions/checkout@v4
 
@@ -21,4 +22,5 @@ jobs:
           commit_user_name: "natanboos"
           commit_user_email: "natanborba77@gmail.com"
           branch: main
-          token: ${{ secrets.PAT_GITHUB }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB }}

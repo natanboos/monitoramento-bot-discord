@@ -25,7 +25,7 @@ jobs:
           echo "diff=$DIFF" >> $GITHUB_OUTPUT
 
       - name: Notificar se estiver offline
-        if: ${{ steps.readhb.outputs.diff > 1200 }}  # > 20 min
+        if: ${{ steps.readhb.outputs.diff > 2400 }}  # > 40 min
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \

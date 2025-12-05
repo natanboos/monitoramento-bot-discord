@@ -18,3 +18,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Atualizando heartbeat"
+          commit_user_name: "natanboos"
+          commit_user_email: "natanborba77@gmail.com"
+          branch: main
+          token: ${{ secrets.PAT_GITHUB }}

@@ -29,5 +29,5 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "{\"content\": \"🚨 **BOT OFFLINE!** Nenhum heartbeat há mais de 20 minutos.\"}" \
+               -d "{\"content\": \"🚨 **BOT OFFLINE!** Nenhum heartbeat há mais de 40 minutos. <@329429623945297921>\"}" \
                https://discord.com/api/webhooks/1446507675247575113/ZCdaGeMOvyx9VNopRfYh93EK0ubOJRNgK0iAofxCCP17MC_QFV8apT82IcTGm-ML8QOS

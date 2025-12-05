@@ -2,7 +2,7 @@ name: Monitor Bot
 
 on:
   schedule:
-    - cron: "*/15 * * * *" # a cada 30 min
+    - cron: "*/15 * * * *" # a cada 15 min
 
 jobs:
   check:
@@ -10,6 +10,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Atualizar repositório
+        run: |
+          git pull origin main
 
       - name: Ler heartbeat
         id: readhb
@@ -21,11 +28,10 @@ jobs:
           NOW=$(date +%s)
           LAST=$(cat last_heartbeat.txt)
           DIFF=$((NOW - LAST))
-
           echo "diff=$DIFF" >> $GITHUB_OUTPUT
 
       - name: Notificar se estiver offline
-        if: ${{ steps.readhb.outputs.diff > 1200 }}  # > 20 min
+        if: ${{ steps.readhb.outputs.diff > 1200 }}
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
